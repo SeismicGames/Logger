@@ -45,6 +45,21 @@ public static class Log
 	[Conditional("DEVELOPER_TOOLS")]
 	public static void DisableTag(string tag)
 	{
-		enabledTags.Remove(tag);
+		while(enabledTags.Remove(tag)) { /* Do Nothing */ }
+	}
+
+	[Conditional("DEVELOPER_TOOLS")]
+	public static void EnableTags(List<string> tags)
+	{
+		enabledTags.AddRange(tags);
+	}
+
+	[Conditional("DEVELOPER_TOOLS")]
+	public static void DisableTags(List<string> tags )
+	{
+		for(int ii=0 ; ii< tags.Count ; ++ii)
+		{
+			while(enabledTags.Remove(tags[ii])) { /* Do Nothing */ }
+		}
 	}
 }
