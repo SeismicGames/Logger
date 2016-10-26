@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GrueGames.Logger</id>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <authors>GrueGames</authors>
     <owners>GrueGames</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
