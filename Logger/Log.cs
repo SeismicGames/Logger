@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine.Assertions;
 using Debug = UnityEngine.Debug;
 
 namespace Grue
@@ -35,6 +36,21 @@ namespace Grue
 		{
 			if(!string.IsNullOrEmpty(tag) && !enabledTags.Contains(tag)) return;
 			Debug.LogException(exception);
+		}
+		
+		[Conditional("DEVELOPER_TOOLS")]
+		public static void AssertNotNull(object that, string format, params object[] args)
+		{
+			Assert(that != null, format, args);
+		}
+
+		[Conditional("DEVELOPER_TOOLS")]
+		public static void Assert(bool that, string format, params object[] args)
+		{
+			if(that) return;
+			Debug.LogErrorFormat(format, args);
+			string msg = string.Format(format, args);
+			throw new AssertionException(msg, msg);
 		}
 
 		[Conditional("DEVELOPER_TOOLS")]
