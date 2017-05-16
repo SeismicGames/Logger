@@ -4,7 +4,7 @@ using System.Diagnostics;
 using UnityEngine.Assertions;
 using Debug = UnityEngine.Debug;
 
-namespace Grue
+namespace Seismic
 {
 	public static class Log
 	{
